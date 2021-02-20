@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<h1>Add User</h1>
+		<Form action="/users" method="POST">
+			<div class="input-group">
+				<label>Name</label>
+				<input type="text" name="name">
+			</div>
+
+			<div class="input-group">
+				<label>Email</label>
+				<input type="email" name="email">
+			</div>
+
+			<div class="input-group">
+				<label>Password</label>
+				<input type="password" name="password">
+			</div>
+
+			<Button type="submit">Send</Button>
+
+			<a href="/users">Kembali</a>
+		</Form>
+	<%- include('../components/footer')%>
+</body>
+</html>
