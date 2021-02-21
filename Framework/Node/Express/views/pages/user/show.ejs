@@ -16,7 +16,10 @@
 		<li>Email : <strong><%= data.email %></strong></li>
 	</ul>
 	<a href="/users/<%= data._id %>/edit">Edit</a>
-	<a href="/users/id">Delete</a>
+	<form action="/users/<%= data._id %>?_method=DELETE" method="POST">
+		<input type="hidden" name="_id" value="<%= data._id %>">
+		<button type="submit">Delete</button>
+	</form>
 	<%- include('../components/footer')%>
 </body>
 </html>

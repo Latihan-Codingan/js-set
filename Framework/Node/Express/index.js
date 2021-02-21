@@ -3,6 +3,7 @@ const userRouter = require('./router/users')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 //() => {} itu sama seperi function(){}
 
@@ -24,6 +25,9 @@ app.use(myLogger)
 
 //menggunakan template engine
 app.set('view engine','ejs')
+
+//menggunakan overridemethod untuk put dan delete
+app.use(methodOverride("_method"))
 
 //menggunakan static file
 app.use(express.static('public'))

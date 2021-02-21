@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Edit User</h1>
-		<Form action="/users/<%= data._id%>" method="POST">
+		<Form action="/users/<%= data._id%>?_method=PUT" method="POST">
 			<input type="hidden" name="_id" value="<%=data._id%>">
 			<div class="input-group">
 				<label>Name</label>

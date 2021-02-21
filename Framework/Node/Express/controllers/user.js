@@ -102,22 +102,27 @@ module.exports = {
 	},
 	update : (req,res) => {
 		const id = req.params.id
-		User.findByIdAndUpdate(id,{
+
+		User.updateOne({_id : id},{
 			name : req.body.name,
 			email : req.body.email
-		},{overwrite : true},(err,data) => {
+		},(err,result)=>{
 			if(err) console.log(err)
-
-			console.log(data)
-			res.redirect('/users/'+id,{data})
+			console.log(result)
+			res.redirect('/users/'+id)
 		})
+
 	},
 	delete : (req,res) => {
-		let id = req.params.userId
-		User.findByIdAndDelete(id,(err)=>{
-			console.log(err)
+		User.findById(req.params.userId,(err,user)=>{
+			if(err) console.log(err)
 
-			res.redirect('/users')
+			user.remove((err,user)=>{
+				if(err) console.log(err)
+
+				console.log(user)
+				res.redirect('/users')
+			})
 		})
 	}
 }
